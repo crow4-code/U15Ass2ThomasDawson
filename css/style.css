@@ -1,1 +1,4 @@
-
+body{
+  background: url("https://i.postimg.cc/bNfxDJjn/homepage-image1.jpg")no-repeat fixed;
+  background-size: cover;
+}
