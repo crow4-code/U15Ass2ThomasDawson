@@ -14,9 +14,21 @@
       display: flex;
       flex-direction: column; /* Make body a column layout */
       height: 100vh;
-      background: url("https://github.com/crow4-code/U15Ass2ThomasDawson/blob/main/images/homepage.jpg?raw=true") no-repeat fixed center center;
-      background-size: cover;
+      background: url("https://github.com/crow4-code/U15Ass2ThomasDawson/blob/main/images/homepage.jpg?raw=true") no-repeat center center fixed; 
+      background-size: cover; /* Make sure the background image covers the entire page */
       position: relative;
+      overflow: hidden;
+    }
+
+    /* Overlay to apply opacity */
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5); /* Dark semi-transparent overlay */
+      z-index: 1; /* Ensure it's on top of the background but below other elements */
     }
 
     /* Side navigation */
@@ -81,22 +93,12 @@
       margin-left: 20%; /* Align content next to the side navigation */
       width: 80%; /* Take up the rest of the space */
       height: auto; /* Let content take its own height */
-      z-index: 1;
+      z-index: 2; /* Ensure it is on top of the overlay */
       display: flex;
       justify-content: flex-start; /* Align content to the left */
-      align-items: center; /* Vertically center the content */
+      align-items: flex-start; /* Align content at the top */
       padding-left: 20px; /* Add space between the text and side navigation */
-      overflow: hidden;
-    }
-
-    .hero .overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
-      z-index: 1;
+      padding-right: 20px; /* Add space between the text and the right edge */
     }
 
     /* Text inside the hero section */
@@ -141,6 +143,9 @@
 </head>
 <body>
 
+  <!-- Overlay for opacity -->
+  <div class="overlay"></div>
+
   <!-- Side navigation -->
   <div class="sidenav">
     <h2>Navigation</h2>
@@ -165,9 +170,6 @@
 
   <!-- Hero Section (Main content) -->
   <section class="hero">
-    <img src="https://github.com/crow4-code/U15Ass2ThomasDawson/blob/main/images/homepage.jpg?raw=true" alt="homepage">
-    <div class="overlay"></div>
-
     <div class="hero-text">
       <h2>Main Content</h2>
       <p>Slovenské Vzdelávacie Centrum – South Manchester is a registered charity dedicated to preserving and promoting Slovak language and culture. We provide Slovak language education and organize cultural and community activities to help Slovak-speaking families maintain their heritage while living abroad. While our primary focus is on supporting Slovak-speaking children and families, we warmly welcome anyone interested in learning the Slovak language and engaging with our traditions. Beyond our Saturday school, we offer various workshops, events, and social activities where individuals of all ages can connect, learn, and take part in our cultural community.</p>
