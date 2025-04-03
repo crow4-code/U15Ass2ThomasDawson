@@ -12,6 +12,7 @@
     body {
       margin: 0;
       display: flex;
+      flex-direction: column; /* Make body a column layout */
       height: 100vh;
       background: url("https://github.com/crow4-code/U15Ass2ThomasDawson/blob/main/images/homepage.jpg?raw=true") no-repeat fixed center center;
       background-size: cover;
@@ -74,17 +75,17 @@
       margin-right: 20px;
     }
 
-    /* Hero Section */
+    /* Hero Section (Main content) */
     .hero {
-      position: relative;
-      margin-left: 20%; /* Adjust so the content is next to the navigation */
-      width: 80%; /* Ensure it takes up the remaining width */
-      height: 100vh; 
+      margin-top: 100px; /* Give space under the header */
+      margin-left: 20%; /* Align content next to the side navigation */
+      width: 80%; /* Take up the rest of the space */
+      height: auto; /* Let content take its own height */
       z-index: 1;
       display: flex;
       justify-content: flex-start; /* Align content to the left */
       align-items: center; /* Vertically center the content */
-      padding-left: 20px; /* Space between the text and side navigation */
+      padding-left: 20px; /* Add space between the text and side navigation */
       overflow: hidden;
     }
 
@@ -130,6 +131,7 @@
       .hero {
         margin-left: 0;
         width: 100%;
+        margin-top: 120px; /* Adjust the margin top for smaller screens */
       }
       .row {
         flex-direction: column;
@@ -161,7 +163,7 @@
     <img src="https://www.pngwing.com/en/free-png-kytux" alt="Slovakia Charity Logo">
   </div>
 
-  <!-- Hero Section -->
+  <!-- Hero Section (Main content) -->
   <section class="hero">
     <img src="https://github.com/crow4-code/U15Ass2ThomasDawson/blob/main/images/homepage.jpg?raw=true" alt="homepage">
     <div class="overlay"></div>
