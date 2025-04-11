@@ -1,186 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SVC Charity</title>
   <style>
+    /* Reset margin and padding for all elements */
     * {
+      margin: 0;
+      padding: 0;
       box-sizing: border-box;
     }
 
     body {
-      margin: 0;
-      display: flex;
-      flex-direction: column; /* Make body a column layout */
+      font-family: Arial, sans-serif;
       height: 100vh;
-      background: url("https://github.com/crow4-code/U15Ass2ThomasDawson/blob/main/images/homepage.jpg?raw=true") no-repeat center center fixed; 
-      background-size: cover; /* Make sure the background image covers the entire page */
-      position: relative;
-      overflow: hidden;
+      display: flex;
+      flex-direction: column;
     }
 
-    /* Overlay to apply opacity */
-    .overlay {
+    /* Flex container to organize layout */
+    .container {
+      display: flex;
+      flex-direction: row;
+      flex-grow: 1;
+    }
+
+    /* Sidebar styles */
+    .sidebar {
+      width: 250px;
+      background-color: #598392;
+      color: white;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      border: 2px solid #444;
+    }
+
+    .sidebar h2 {
+      text-align: center;
+    }
+
+    .sidebar a {
+      color: white;
+      text-decoration: none;
+      padding: 10px;
+      margin: 5px 0;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .sidebar a:hover {
+      background-color: #E5ECF4;
+    }
+
+    /* Main content area */
+    .main-content {
+      flex-grow: 1;
+      padding: 20px;
+      color: white;
+      border: 2px solid #444;
+      margin-left: 20px;
+      background-color: #598392;
+      position: relative; /* To position overlay on top */
+      z-index: 1; /* Ensure content is above the overlay */
+    }
+
+    /* Header styles */
+    header {
+      background: url("https://github.com/crow4-code/U15Ass2ThomasDawson/blob/main/images/homepage.jpg?raw=true") no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      padding: 50px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border: 2px solid #99A1A6;
+      position: relative; /* To allow overlay on top */
+    }
+
+    /* Adding an overlay with opacity */
+    header::after {
+      content: "";
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.5); /* Dark semi-transparent overlay */
-      z-index: 1; /* Ensure it's on top of the background but below other elements */
+      background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+      z-index: -1; /* Ensure overlay is below the text */
     }
 
-    /* Side navigation */
-    .sidenav {
-      width: 20%;
-      background-color: #598392;
-      padding: 20px;
-      text-align: center;
-      color: black;
-      position: fixed;
-      height: 100%;
-      z-index: 2;
-      border: 2px solid #444;
-    }
-
-    .sidenav a {
-      display: block;
-      color: black;
-      padding: 10px;
-      text-decoration: none;
-    }
-
-    .sidenav a:hover {
-      background-color: #E5ECF4;
-    }
-
-    /* Top bar */
-    .top-bar {
-      background-color: #444;
-      height: 10px;
-      width: 100%;
-      z-index: 2;
-      position: fixed;
-      top: 0;
-      left: 0;
-    }
-
-    /* Header */
-    .header {
-      background-color: #99A1A6;
-      padding: 20px;
-      text-align: center;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: fixed;
-      top: 10px;
-      left: 20%;
-      width: 80%;
-      z-index: 2;
-      border: 2px solid #444;
-    }
-
-    .header img {
+    header img {
       height: 50px;
       margin-right: 20px;
     }
 
-    /* Hero Section (Main content) */
-    .hero {
-      margin-top: 100px; /* Give space under the header */
-      margin-left: 20%; /* Align content next to the side navigation */
-      width: 80%; /* Take up the rest of the space */
-      height: auto; /* Let content take its own height */
-      z-index: 2; /* Ensure it is on top of the overlay */
-      display: flex;
-      justify-content: flex-start; /* Align content to the left */
-      align-items: flex-start; /* Align content at the top */
-      padding-left: 20px; /* Add space between the text and side navigation */
-      padding-right: 20px; /* Add space between the text and the right edge */
+    header h1 {
+      font-size: 24px;
     }
 
-    /* Text inside the hero section */
-    .hero-text {
-      position: relative;
-      color: white;
-      text-align: left; /* Align text to the left */
-      font-size: 18px; /* Smaller font size */
-      font-weight: bold;
-      z-index: 2;
-      max-width: 70%; /* Limit the width of the text */
-    }
-
-    /* Footer */
-    .footer {
+    /* Footer styles */
+    footer {
       background-color: #99A1A6;
-      padding: 10px;
+      color: white;
       text-align: center;
-      z-index: 2;
-      width: 100%;
-      position: fixed;
+      padding: 10px;
+      position: sticky;
       bottom: 0;
+      width: 100%;
       border: 2px solid #444;
     }
 
-    @media screen and (max-width: 600px) {
-      .sidenav {
+    /* New sections after main content */
+    .section {
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      padding: 20px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 2px solid #444;
+    }
+
+    .section-1 {
+      background-color: #598392;
+    }
+
+    .section-2 {
+      background-color: #598392;
+    }
+
+    /* Responsive Layout */
+    @media screen and (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+
+      .sidebar {
         width: 100%;
         height: auto;
-        position: relative;
+        padding: 10px;
       }
-      .hero {
-        margin-left: 0;
-        width: 100%;
-        margin-top: 120px; /* Adjust the margin top for smaller screens */
-      }
-      .row {
-        flex-direction: column;
+
+      .main-content {
+        padding: 10px;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Overlay for opacity -->
-  <div class="overlay"></div>
-
-  <!-- Side navigation -->
-  <div class="sidenav">
-    <h2>Navigation</h2>
-    <a href="#">About Us</a>
-    <a href="#">Contacts</a>
-    <a href="#">Courses</a>
-    <a href="#">Member sign-up</a>
-    <a href="#">Membership Page</a>
-    <a href="#">History and Events</a>
-    <a href="#">Educational Games</a>
-    <a href="#">Donations</a>
-  </div>
-
-  <!-- Top bar -->
-  <div class="top-bar"></div>
-
-  <!-- Header -->
-  <div class="header">
+  <!-- Header Section -->
+  <header>
+    <!-- Logo Image -->
+    <img src="https://github.com/crow4-code/U15Ass2ThomasDawson/blob/main/images/logo1.png?raw=true" alt="Logo">
+    <!-- Header Title -->
     <h1 class="zin_display">Slovenské Vzdelávacie Centrum</h1>
-    <img src="https://www.pngwing.com/en/free-png-kytux" alt="Slovakia Charity Logo">
-  </div>
+  </header>
 
-  <!-- Hero Section (Main content) -->
-  <section class="hero">
-    <div class="hero-text">
-      <h2>Main Content</h2>
-      <p>Slovenské Vzdelávacie Centrum – South Manchester is a registered charity dedicated to preserving and promoting Slovak language and culture. We provide Slovak language education and organize cultural and community activities to help Slovak-speaking families maintain their heritage while living abroad. While our primary focus is on supporting Slovak-speaking children and families, we warmly welcome anyone interested in learning the Slovak language and engaging with our traditions. Beyond our Saturday school, we offer various workshops, events, and social activities where individuals of all ages can connect, learn, and take part in our cultural community.</p>
-      <p>At Slovenské Vzdelávacie Centrum, our mission goes beyond just teaching the Slovak language. We are here to keep our heritage alive, to ensure that children growing up abroad don’t lose their connection to their roots, and to create a place where Slovak culture thrives—even far from home. We believe that language is more than just words; it carries identity, history, and a sense of belonging. Through our work, we bring Slovak-speaking families together, helping them build friendships, strengthen their cultural ties, and feel at home even while living in the UK.</p>
+  <!-- Main Layout Container (Sidebar + Content) -->
+  <div class="container">
+    
+    <!-- Sidebar Section -->
+    <div class="sidebar">
+      <h2>Navigation</h2>
+      <!-- Sidebar Links -->
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Contacts</a>
+      <a href="#">Courses</a>
+      <a href="#">Sign-Up</a>
+      <a href="#">History and Events</a>
+      <a href="#">Educational Games</a>
+      <a href="#">Donations</a>
     </div>
-  </section>
 
-  <!-- Footer -->
-  <div class="footer">
-    <p>© 2025 Slovenské Vzdelávacie Centrum. Built using GitHub.</p>
+    <!-- Main Content Section -->
+    <div class="main-content">
+      <font size="6">  
+      <h2>Main Content</h2>
+</font>
+      <font size="4">
+      <p>Slovenské Vzdelávacie Centrum – South Manchester is a registered charity dedicated to preserving and promoting Slovak language and culture. We provide Slovak language education and organize cultural and community activities to help Slovak-speaking families maintain their heritage while living abroad. While our primary focus is on supporting Slovak-speaking children and families, we warmly welcome anyone interested in learning the Slovak language and engaging with our traditions. Beyond our Saturday school, we offer various workshops, events, and social activities where individuals of all ages can connect, learn, and take part in our cultural community.</p>
+<!-- Creates a gap between both paragraphs -->
+      <p style="margin-bottom: 20px;"></p>
+        
+      <p>At Slovenské Vzdelávacie Centrum, our mission goes beyond just teaching the Slovak language. We are here to keep our heritage alive, to ensure that children growing up abroad don’t lose their connection to their roots, and to create a place where Slovak culture thrives—even far from home. We believe that language is more than just words; it carries identity, history, and a sense of belonging. Through our work, we bring Slovak-speaking families together, helping them build friendships, strengthen their cultural ties, and feel at home even while living in the UK.</p>
+        </font>
+    </div>
   </div>
 
+  <!-- Section 1 - Additional Content Area -->
+  <div class="section section-1">
+    <h3>What Do We Offer?</h3>
+    <p>We run Saturday Slovak language lessons for children and adults, as well as cultural and community activities:
+
+· Morning Classes: 10:00 – 12:00 at The Firs Primary School
+
+· Afternoon Classes: 14:00 – 16:00 at Sale High School</p>
+  </div>
+
+  <!-- Section 2 - Additional Content Area -->
+  <div class="section section-2">
+    <h3>How Can We Help?</h3>
+    <p>We offer practical support for Slovak-speaking families navigating life in the UK or transitioning back to Slovakia:</p>
+         <p style="margin-bottom: 20px;"></p>
+    <p>· Support for ‘Komisionálne Skúšky', Guidance for Families Returning to Slovakia, Bridging the UK & Slovak Education Systems, Legal & Administrative Advice, English Language Support.</p>
+  </div>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>© 2025 Slovenské Vzdelávacie Centrum. All rights reserved.</p>
+  </footer>
 </body>
 </html>
