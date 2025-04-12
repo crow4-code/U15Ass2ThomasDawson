@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SVC Charity - Sign Up</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background-color: #E5ECF4;
+    }
+
+    .container {
+      display: flex;
+      flex: 1;
+    }
+
+    .sidebar {
+      width: 250px;
+      background-color: #598392;
+      color: white;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      border: 2px solid #444;
+    }
+
+    .sidebar h2 {
+      text-align: center;
+    }
+
+    .sidebar a {
+      color: white;
+      text-decoration: none;
+      padding: 10px;
+      margin: 5px 0;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .sidebar a:hover {
+      background-color: #E5ECF4;
+      color: #000;
+    }
+
+    header {
+      background: url("https://github.com/crow4-code/U15Ass2ThomasDawson/blob/main/images/homepage.jpg?raw=true") no-repeat center center;
+      background-size: cover;
+      color: white;
+      padding: 50px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      z-index: 10;
+      border: 2px solid #99A1A6;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: -1;
+    }
+
+    header h1 {
+      font-size: 24px;
+    }
+
+    header img {
+      height: 50px;
+    }
+
+    .main-content {
+      flex: 1;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .form-container {
+      width: 100%;
+      max-width: 400px;
+      background-color: #f4f4f4;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .form-container h2 {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    form input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      margin-bottom: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .error {
+      color: red;
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+
+    .error-input {
+      border: 1px solid red;
+    }
+
+    form button {
+      width: 100%;
+      padding: 10px;
+      background-color: #598392;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      margin-top: 15px;
+      cursor: pointer;
+    }
+
+    form button:hover {
+      background-color: #4f7278;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      color: white;
+      background-color: #99A1A6;
+      border-top: 2px solid #444;
+    }
+
+    @media screen and (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        width: 100%;
+        height: auto;
+      }
+
+      .main-content {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <img src="https://github.com/crow4-code/U15Ass2ThomasDawson/blob/main/images/logo1.png?raw=true" alt="Logo" />
+    <h1>Slovenské Vzdelávacie Centrum</h1>
+  </header>
+
+  <!-- Sidebar + Main -->
+  <div class="container">
+
+    <!-- Sidebar -->
+    <nav class="sidebar">
+      <h2>Navigation</h2>
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Contacts</a>
+      <a href="#">Courses</a>
+      <a href="#">Sign-Up</a>
+      <a href="#">History and Events</a>
+      <a href="#">Educational Games</a>
+      <a href="#">Donations</a>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <div class="form-container">
+        <h2>Sign Up</h2>
+        <form id="signup-form">
+          <div>
+            <input type="text" id="full-name" placeholder="Full Name" required />
+            <div id="error-full-name" class="error"></div>
+          </div>
+          <div>
+            <input type="email" id="email" placeholder="Email" required />
+            <div id="error-email" class="error"></div>
+          </div>
+          <div>
+            <input type="password" id="password" placeholder="Password" required />
+            <div id="error-password" class="error"></div>
+          </div>
+          <button type="submit">Sign Up</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Slovenské Vzdelávacie Centrum. All rights reserved.</p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    document.getElementById("signup-form").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      // Clear all previous errors
+      document.querySelectorAll(".error").forEach(e => e.textContent = "");
+      document.querySelectorAll("input").forEach(i => i.classList.remove("error-input"));
+
+      const fullName = document.getElementById("full-name");
+      const email = document.getElementById("email");
+      const password = document.getElementById("password");
+
+      let hasError = false;
+
+      if (fullName.value.trim() === "") {
+        document.getElementById("error-full-name").textContent = "Full Name is required.";
+        fullName.classList.add("error-input");
+        hasError = true;
+      }
+
+      if (email.value.trim() === "") {
+        document.getElementById("error-email").textContent = "Email is required.";
+        email.classList.add("error-input");
+        hasError = true;
+      }
+
+      if (password.value.trim() === "") {
+        document.getElementById("error-password").textContent = "Password is required.";
+        password.classList.add("error-input");
+        hasError = true;
+      }
+
+      if (!hasError) {
+        alert("Form submitted successfully!");
+        // Actual form submission or AJAX request can be added here
+      }
+    });
+  </script>
+</body>
+</html>
