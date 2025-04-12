@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SVC Charity</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background-color: #E5ECF4;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+      flex-grow: 1;
+    }
+
+    .sidebar {
+      width: 250px;
+      background-color: #598392;
+      color: white;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      border: 2px solid #444;
+    }
+
+    .sidebar h2 {
+      text-align: center;
+    }
+
+    .sidebar a {
+      color: white;
+      text-decoration: none;
+      padding: 10px;
+      margin: 5px 0;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .sidebar a:hover {
+      background-color: #E5ECF4;
+    }
+
+    header {
+      background: url("https://github.com/crow4-code/U15Ass2ThomasDawson/blob/main/images/homepage.jpg?raw=true") no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      padding: 50px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      z-index: 10;
+      border: 2px solid #99A1A6;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: -1;
+    }
+
+    header img {
+      height: 50px;
+      margin-right: 20px;
+    }
+
+    header h1 {
+      font-size: 24px;
+    }
+
+    .main-content {
+      flex-grow: 1;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #E5ECF4;
+    }
+
+    .content-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      width: 100%;
+      max-width: 1000px;
+    }
+
+    .course-dates, .pay-as-you-go {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 45%;
+      min-width: 280px;
+    }
+
+    .course-dates button {
+      background-color: #598392;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin: 5px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .course-dates button:hover {
+      background-color: #446673;
+    }
+
+    footer {
+      color: white;
+      text-align: center;
+      padding: 10px;
+      border: 2px solid #444;
+      background-color: #99A1A6;
+    }
+
+    @media screen and (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        width: 100%;
+        height: auto;
+        padding: 10px;
+      }
+
+      .main-content {
+        padding: 10px;
+      }
+
+      .course-dates, .pay-as-you-go {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header>
+    <img src="https://github.com/crow4-code/U15Ass2ThomasDawson/blob/main/images/logo1.png?raw=true" alt="Logo">
+    <h1 class="zin_display">Slovenské Vzdelávacie Centrum</h1>
+  </header>
+
+  <!-- Main Layout Container -->
+  <div class="container">
+
+    <!-- Sidebar Section -->
+    <div class="sidebar">
+      <h2>Navigation</h2>
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Contacts</a>
+      <a href="#">Courses</a>
+      <a href="#">Sign-Up</a>
+      <a href="#">History and Events</a>
+      <a href="#">Educational Games</a>
+      <a href="#">Donations</a>
+    </div>
+
+    <!-- Main Content Section -->
+    <div class="main-content">
+      <div class="content-container">
+
+        <!-- Courses Panel -->
+        <div class="course-dates">
+          <h3>Course Dates</h3>
+          <p>Autumn Term: September 2, 2025 - October 20, 2025 (7 weeks)</p>
+          <button onclick="alert('The autumn classes are registered now.')">£84</button>
+
+          <p>Winter Term: November 3, 2025 - December 8, 2025 (5 weeks)</p>
+          <button onclick="alert('The winter classes are registered now.')">£60</button>
+
+          <p>Spring Term: January 6, 2026 - March 17, 2026 (10 weeks)</p>
+          <button onclick="alert('The spring classes are registered now.')">£120</button>
+
+          <p>Summer Term: April 14, 2026 - May 26, 2026 (6 weeks)</p>
+          <button onclick="alert('The summer classes are registered now.')">£72</button>
+        </div>
+
+        <!-- Pay-as-you-go Panel -->
+        <div class="pay-as-you-go">
+          <h3>Pay-As-You-Go Option</h3>
+          <p>For families who prefer flexibility, we offer a Pay-As-You-Go option:</p>
+          <p><strong>Price per session:</strong> £13 per Saturday</p>
+          <p><strong>Sibling Discount:</strong> Each additional sibling receives a 25% discount on their session fee.</p>
+          <h4>Example of Fees for Siblings:</h4>
+          <p>First Child: £13</p>
+          <p>Second Child (25% Discount): £9.75</p>
+          <p><strong>Total for Two Siblings:</strong> £22.75</p>
+          <p>Third Child (25% Discount): £9.75</p>
+          <p><strong>Total for Three Siblings:</strong> £32.50</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Slovenské Vzdelávacie Centrum. All rights reserved.</p>
+  </footer>
+</body>
+</html>
