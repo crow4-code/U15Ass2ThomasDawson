@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SVC Charity</title>
+  <style>
+    /* Reset margin and padding for all elements */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Flex container to organize layout */
+    .container {
+      display: flex;
+      flex-direction: row;
+      flex-grow: 1;
+    }
+
+    /* Sidebar styles */
+    .sidebar {
+      width: 250px;
+      background-color: #598392;
+      color: white;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      border: 2px solid #444;
+    }
+
+    .sidebar h2 {
+      text-align: center;
+    }
+
+    .sidebar a {
+      color: white;
+      text-decoration: none;
+      padding: 10px;
+      margin: 5px 0;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .sidebar a:hover {
+      background-color: #E5ECF4;
+    }
+
+    /* Main content area */
+    .main-content {
+      flex-grow: 1;
+      padding: 20px;
+      color: white;
+      border: 2px solid #444;
+      margin-left: 20px;
+      background-color: #598392;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Header styles */
+    header {
+      background: url("https://github.com/crow4-code/U15Ass2ThomasDawson/blob/main/images/homepage.jpg?raw=true") no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      padding: 50px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border: 2px solid #99A1A6;
+      position: relative;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: -1;
+    }
+
+    /* Logo image styling */
+    .logo {
+      height: 60px;
+      width: auto;
+      object-fit: contain;
+      margin-right: 20px;
+    }
+
+    header h1 {
+      font-size: 24px;
+    }
+
+    /* Footer styles */
+    footer {
+      background-color: #99A1A6;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      position: sticky;
+      bottom: 0;
+      width: 100%;
+      border: 2px solid #444;
+    }
+
+    /* Responsive Layout */
+    @media screen and (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        width: 100%;
+        height: auto;
+        padding: 10px;
+      }
+
+      .main-content {
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header>
+    <!-- Logo Image -->
+    <img src="https://github.com/crow4-code/U15Ass2ThomasDawson/blob/main/images/logo1.png?raw=true" alt="Logo" class="logo">
+    <!-- Header Title -->
+    <h1 class="zin_display">Slovenské Vzdelávacie Centrum</h1>
+  </header>
+
+  <!-- Main Layout Container (Sidebar + Content) -->
+  <div class="container">
+    
+    <!-- Sidebar Section -->
+    <div class="sidebar">
+      <h2>Navigation</h2>
+      <!-- Sidebar Links -->
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Contacts</a>
+      <a href="#">Courses</a>
+      <a href="#">Sign-Up</a>
+      <a href="#">History and Events</a>
+      <a href="#">Educational Games</a>
+      <a href="#">Donations</a>
+    </div>
+
+    <!-- Main Content Section -->
+    <div class="main-content">
+      <font size="6">  
+        <h2>About Us</h2>
+      </font>
+      <font size="4">
+        <p>At Slovenské Vzdelávacie Centrum – South Manchester, we believe that Slovak culture should be experienced, not just learned. That’s why we organise a variety of events for everyone—families, children, adults, and individuals who simply want to connect with Slovak heritage, make new friends, and enjoy great company.</p>
+        <p style="margin-bottom: 20px;"></p>
+        <p>Easter Workshop (6th April):</p>
+        <p>Step into the world of Slovak Easter traditions at our Easter Workshop, where culture, creativity, and community come together for a fun and welcoming afternoon. This hands-on event will offer something for everyone—families, individuals, and anyone who enjoys arts, crafts, and festive traditions. Join us in decorating eggs using traditional Slovak techniques, creating beautiful Easter crafts, and learning about the unique customs that make Slovak Easter so special.</p>
+        
+        <!-- Image Section at the Bottom of Main Content -->
+        <div style="margin-top: 30px; display: flex; flex-wrap: wrap; gap: 20px;">
+          <img src="https://github.com/crow4-code/U15Ass2ThomasDawson/blob/main/images/events.jpg?raw=true" 
+              alt="Children learning together" 
+              style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+        </div>
+      </font>
+    </div>
+  </div>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>© 2025 Slovenské Vzdelávacie Centrum. All rights reserved.</p>
+  </footer>
+</body>
+</html>
