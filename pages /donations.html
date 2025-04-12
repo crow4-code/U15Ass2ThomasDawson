@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SVC Charity</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background-color: #E5ECF4;
+    }
+
+    .container {
+      display: flex;
+      flex-grow: 1;
+      flex-direction: row;
+    }
+
+    .sidebar {
+      width: 250px;
+      background-color: #598392;
+      color: white;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      border: 2px solid #444;
+    }
+
+    .sidebar h2 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .sidebar a {
+      color: white;
+      text-decoration: none;
+      padding: 10px;
+      margin: 5px 0;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .sidebar a:hover {
+      background-color: #E5ECF4;
+      color: #000;
+    }
+
+    header {
+      background: url("https://github.com/crow4-code/U15Ass2ThomasDawson/blob/main/images/homepage.jpg?raw=true") no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      padding: 50px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      border: 2px solid #99A1A6;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 0;
+    }
+
+    header img,
+    header h1 {
+      position: relative;
+      z-index: 1;
+    }
+
+    header img {
+      height: 50px;
+      margin-right: 20px;
+    }
+
+    header h1 {
+      font-size: 24px;
+    }
+
+    .main-content {
+      flex-grow: 1;
+      padding: 20px;
+    }
+
+    footer {
+      color: white;
+      text-align: center;
+      padding: 10px;
+      border: 2px solid #444;
+      background-color: #99A1A6;
+      position: sticky;
+      bottom: 0;
+      width: 100%;
+    }
+
+    /* Donation Section Styles */
+    .donation-section {
+      margin-top: 20px;
+      background-color: #E5ECF4;
+      padding: 20px;
+      border-radius: 10px;
+      width: 100%;
+      max-width: 500px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .donation-slider {
+      width: 100%;
+      margin: 10px 0;
+    }
+
+    .donation-button {
+      background-color: #598392;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .donation-button:hover {
+      background-color: #4f7b7e;
+    }
+
+    @media screen and (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        width: 100%;
+        height: auto;
+        padding: 10px;
+      }
+
+      .main-content {
+        padding: 10px;
+      }
+
+      .donation-section {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <img src="https://github.com/crow4-code/U15Ass2ThomasDawson/blob/main/images/logo1.png?raw=true" alt="Logo">
+    <h1 class="zin_display">Slovenské Vzdelávacie Centrum</h1>
+  </header>
+
+  <!-- Page Layout -->
+  <div class="container">
+    
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <h2>Navigation</h2>
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Contacts</a>
+      <a href="#">Courses</a>
+      <a href="#">Sign-Up</a>
+      <a href="#">History and Events</a>
+      <a href="#">Educational Games</a>
+      <a href="#">Donations</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <h2>Donations</h2>
+      <div class="donation-section">
+        <label for="donation-amount">Select Donation Amount (£0 - £100):</label>
+        <input type="range" id="donation-amount" name="donation-amount" min="0" max="100" value="0" class="donation-slider">
+        <p>£<span id="donation-value">0</span></p>
+        <button class="donation-button" onclick="alert('Thank you for your donation!')">Donate</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Slovenské Vzdelávacie Centrum. All rights reserved.</p>
+  </footer>
+
+  <!-- Script for slider value -->
+  <script>
+    const slider = document.getElementById("donation-amount");
+    const donationValue = document.getElementById("donation-value");
+
+    slider.oninput = function() {
+      donationValue.textContent = slider.value;
+    }
+  </script>
+</body>
+</html>
