@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>SVC Charity - Sign Up</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SVC Charity</title>
   <style>
+    /* Reset margin and padding for all elements */
     * {
       margin: 0;
       padding: 0;
@@ -16,14 +17,16 @@
       height: 100vh;
       display: flex;
       flex-direction: column;
-      background-color: #E5ECF4;
     }
 
+    /* Flex container to organize layout */
     .container {
       display: flex;
-      flex: 1;
+      flex-direction: row;
+      flex-grow: 1;
     }
 
+    /* Sidebar styles */
     .sidebar {
       width: 250px;
       background-color: #598392;
@@ -50,103 +53,88 @@
 
     .sidebar a:hover {
       background-color: #E5ECF4;
-      color: #000;
     }
 
+    /* Main content area */
+    .main-content {
+      flex-grow: 1;
+      padding: 20px;
+      color: white;
+      border: 2px solid #444;
+      margin-left: 20px;
+      background-color: #598392;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Header styles */
     header {
-      background: url("https://github.com/crow4-code/U15Ass2ThomasDawson/blob/main/images/homepage.jpg?raw=true") no-repeat center center;
+      background: url("https://github.com/crow4-code/U15Ass2ThomasDawson/blob/main/images/homepage.jpg?raw=true") no-repeat center center fixed;
       background-size: cover;
       color: white;
       padding: 50px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      position: relative;
+      position: sticky;
+      top: 0;
       z-index: 10;
       border: 2px solid #99A1A6;
+      position: relative;
     }
 
+    /* Adding an overlay with opacity */
     header::after {
       content: "";
       position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       background-color: rgba(0, 0, 0, 0.5);
       z-index: -1;
+    }
+
+    header img {
+      height: 50px;
+      margin-right: 20px;
     }
 
     header h1 {
       font-size: 24px;
     }
 
-    header img {
-      height: 50px;
-    }
-
-    .main-content {
-      flex: 1;
-      padding: 40px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .form-container {
-      width: 100%;
-      max-width: 400px;
-      background-color: #f4f4f4;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-    }
-
-    .form-container h2 {
-      margin-bottom: 20px;
-      text-align: center;
-    }
-
-    form input {
-      width: 100%;
-      padding: 10px;
-      margin-top: 10px;
-      margin-bottom: 5px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-
-    .error {
-      color: red;
-      font-size: 12px;
-      margin-bottom: 10px;
-    }
-
-    .error-input {
-      border: 1px solid red;
-    }
-
-    form button {
-      width: 100%;
-      padding: 10px;
-      background-color: #598392;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      margin-top: 15px;
-      cursor: pointer;
-    }
-
-    form button:hover {
-      background-color: #4f7278;
-    }
-
+    /* Footer styles */
     footer {
-      text-align: center;
-      padding: 15px;
-      color: white;
       background-color: #99A1A6;
-      border-top: 2px solid #444;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      position: sticky;
+      bottom: 0;
+      width: 100%;
+      border: 2px solid #444;
     }
 
+    /* New sections after main content */
+    .section {
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      padding: 20px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 2px solid #444;
+    }
+
+    .section-1 {
+      background-color: #598392;
+    }
+
+    .section-2 {
+      background-color: #598392;
+    }
+
+    /* Responsive Layout */
     @media screen and (max-width: 768px) {
       .container {
         flex-direction: column;
@@ -155,26 +143,27 @@
       .sidebar {
         width: 100%;
         height: auto;
+        padding: 10px;
       }
 
       .main-content {
-        padding: 20px;
+        padding: 10px;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
+  <!-- Header Section -->
   <header>
-    <img src="https://github.com/crow4-code/U15Ass2ThomasDawson/blob/main/images/logo1.png?raw=true" alt="Logo" />
-    <h1>Slovenské Vzdelávacie Centrum</h1>
+    <img src="https://github.com/crow4-code/U15Ass2ThomasDawson/blob/main/images/logo1.png?raw=true" alt="Logo">
+    <h1 class="zin_display">Slovenské Vzdelávacie Centrum</h1>
   </header>
 
-  <!-- Sidebar + Main -->
+  <!-- Main Layout Container (Sidebar + Content) -->
   <div class="container">
-
-    <!-- Sidebar Section -->
+    
+  <!-- Sidebar Section -->
     <div class="sidebar">
       <h2>Navigation</h2>
       <!-- Sidebar Links -->
@@ -188,72 +177,44 @@
       <a href="donations.html">Donations</a>
     </div>
 
-    <!-- Main Content -->
+
+    <!-- Main Content Section -->
     <div class="main-content">
-      <div class="form-container">
-        <h2>Sign Up</h2>
-        <form id="signup-form">
-          <div>
-            <input type="text" id="full-name" placeholder="Full Name" required />
-            <div id="error-full-name" class="error"></div>
-          </div>
-          <div>
-            <input type="email" id="email" placeholder="Email" required />
-            <div id="error-email" class="error"></div>
-          </div>
-          <div>
-            <input type="password" id="password" placeholder="Password" required />
-            <div id="error-password" class="error"></div>
-          </div>
-          <button type="submit">Sign Up</button>
+      <h2>Main Content</h2>
+
+      <!-- Registration Form Section -->
+      <div class="section">
+        <h3>Register for Slovenské Vzdelávacie Centrum</h3>
+        <form action="#" method="post" style="display: flex; flex-direction: column; gap: 15px; max-width: 500px;">
+          <label for="fullname">Full Name:</label>
+          <input type="text" id="fullname" name="fullname" required style="padding: 10px; border-radius: 5px; border: none;">
+
+          <label for="email">Email Address:</label>
+          <input type="email" id="email" name="email" required style="padding: 10px; border-radius: 5px; border: none;">
+
+          <label for="mobile">Mobile Number:</label>
+          <input type="tel" id="mobile" name="mobile" required pattern="[0-9]{10,15}" placeholder="e.g., +421900123456" style="padding: 10px; border-radius: 5px; border: none;">
+
+          <label for="address">Address:</label>
+          <input type="text" id="address" name="address" required style="padding: 10px; border-radius: 5px; border: none;">
+
+          <label for="social">Social Media Handle:</label>
+          <input type="text" id="social" name="social" placeholder="e.g., @svc_official" style="padding: 10px; border-radius: 5px; border: none;">
+
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required style="padding: 10px; border-radius: 5px; border: none;">
+
+          <button type="submit" style="padding: 10px; background-color: #E5ECF4; color: #333; border: none; border-radius: 5px; cursor: pointer;">
+            Sign Up
+          </button>
         </form>
       </div>
     </div>
   </div>
 
-  <!-- Footer -->
+  <!-- Footer Section -->
   <footer>
     <p>© 2025 Slovenské Vzdelávacie Centrum. All rights reserved.</p>
   </footer>
-
-  <!-- JavaScript -->
-  <script>
-    document.getElementById("signup-form").addEventListener("submit", function(event) {
-      event.preventDefault();
-
-      // Clear all previous errors
-      document.querySelectorAll(".error").forEach(e => e.textContent = "");
-      document.querySelectorAll("input").forEach(i => i.classList.remove("error-input"));
-
-      const fullName = document.getElementById("full-name");
-      const email = document.getElementById("email");
-      const password = document.getElementById("password");
-
-      let hasError = false;
-
-      if (fullName.value.trim() === "") {
-        document.getElementById("error-full-name").textContent = "Full Name is required.";
-        fullName.classList.add("error-input");
-        hasError = true;
-      }
-
-      if (email.value.trim() === "") {
-        document.getElementById("error-email").textContent = "Email is required.";
-        email.classList.add("error-input");
-        hasError = true;
-      }
-
-      if (password.value.trim() === "") {
-        document.getElementById("error-password").textContent = "Password is required.";
-        password.classList.add("error-input");
-        hasError = true;
-      }
-
-      if (!hasError) {
-        // Redirect to the membership page
-        window.location.href = "pages/membership.html";
-      }
-    });
-  </script>
 </body>
 </html>
